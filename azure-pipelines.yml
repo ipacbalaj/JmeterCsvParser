@@ -37,8 +37,8 @@ steps:
   displayName: Publish Jmeter Parser
   inputs:
     workingDirectory: $(jmeterParserDirectory)
-    command: publish
-    arguments: "--configuration Release --output $(jmeterParserPublishDirectory)"
+    command: publish 
+    arguments: "--configuration Release --runtime win10-x64 --output $(jmeterParserPublishDirectory)"
     projects: $(jmeterParserProject)
     publishWebProjects: false
 
