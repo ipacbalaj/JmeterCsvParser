@@ -15,7 +15,8 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   jmeterParserDirectory:  '$(Build.SourcesDirectory)/JmeterResultsCsvParser'
-  jmeterParserProject: '$(jmeterParserDirectory)/JmeterResultsCsvParser.csproj' 
+  jmeterParserProjectName: 'JmeterResultsCsvParser.csproj'
+  jmeterParserProject: '$(jmeterParserDirectory)/$(jmeterParserProjectName)' 
   jmeterParserPublishDirectory: '$(jmeterParserDirectory)/obj/publish'
 
 steps:
