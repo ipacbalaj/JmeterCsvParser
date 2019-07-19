@@ -41,3 +41,9 @@ steps:
     arguments: "--configuration Release --output $(jmeterParserPublishDirectory)"
     projects: $(jmeterParserProject)
     publishWebProjects: false
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: Jmeter Results Parser'
+  inputs:
+    PathtoPublish: '$(jmeterParserPublishDirectory)'
+    ArtifactName: jmeterParser
