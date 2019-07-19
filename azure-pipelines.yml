@@ -14,7 +14,7 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  jmeterParserDirectory:  '$(Build.SourcesDirectory)/JmeterResultsCsvParser'
+  jmeterParserDirectory:  '$(Build.SourcesDirectory)/JmeterResultsCsvParser/JmeterResultsCsvParser'
   jmeterParserProjectName: 'JmeterResultsCsvParser.csproj'
   jmeterParserProject: '$(jmeterParserDirectory)/$(jmeterParserProjectName)' 
   jmeterParserPublishDirectory: '$(jmeterParserDirectory)/obj/publish'
@@ -39,6 +39,5 @@ steps:
     workingDirectory: $(jmeterParserDirectory)
     command: publish
     arguments: "--configuration Release --output $(jmeterParserPublishDirectory)"
-    projects: |
-      $(jmeterParserProjectName)
+    projects: $(jmeterParserProject)
     publishWebProjects: false
