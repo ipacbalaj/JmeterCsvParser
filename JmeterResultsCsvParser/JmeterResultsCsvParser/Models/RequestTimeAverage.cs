@@ -8,5 +8,6 @@ namespace JmeterResultsCsvParser.Models
     {
         public string RequestName { get; set; }
         public double AverageTimeInMilliseconds { get; set; }
+        public int NoOfFailedRequests { get; set; }
     }
 }

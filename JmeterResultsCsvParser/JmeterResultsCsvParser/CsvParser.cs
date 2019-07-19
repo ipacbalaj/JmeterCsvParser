@@ -11,7 +11,6 @@ namespace JmeterResultsCsvParser
         public List<RequestInfo> ParseCsvFile(string fileName)
         {
             var requestList = new List<RequestInfo>();
-
             using (TextReader reader = File.OpenText(fileName))
             {
                 CsvReader csv = new CsvReader(reader);
@@ -23,8 +22,8 @@ namespace JmeterResultsCsvParser
                     RequestInfo record = csv.GetRecord<RequestInfo>();
                     requestList.Add(record);
                 }
-
             }
+
             return requestList;
         }
     }

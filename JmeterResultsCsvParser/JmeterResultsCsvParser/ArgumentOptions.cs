@@ -7,9 +7,16 @@ namespace JmeterResultsCsvParser
 {
     public class ArgumentOptions
     {
-        [Option('e', "emails", Required = false, HelpText = "List of emails to send resuts to.")]
-        public IEnumerable<string> Emails { get; set; }
-        [Option('p', "path", Required = true, HelpText = "Csv File Path")]
+        [Option('s', "sourcepath", Required = true, HelpText = "Source Csv File Path")]
         public string CsvFilePath { get; set; }
+
+        [Option('d', "destinationPath", Required = true, HelpText = "Result XML file path")]
+        public string XmlResultFilePath { get; set; }
+
+        [Option('t', "threshold", Required = false, HelpText = "Threshold Value")]
+        public int ThresholdValue { get; set; }
+
+        [Option("failure", Required = false, HelpText = "Should Check for failures")]
+        public bool ShouldCheckForFailure { get; set; }
     }
 }

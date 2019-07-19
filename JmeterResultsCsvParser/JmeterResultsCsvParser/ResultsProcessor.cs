@@ -1,4 +1,5 @@
-﻿using JmeterResultsCsvParser.Models;
+﻿using JmeterResultsCsvParser.Constants;
+using JmeterResultsCsvParser.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,8 @@ namespace JmeterResultsCsvParser
             var result = requests.GroupBy(r => r.label).Select(g => new RequestTimeAverage()
             {
                 AverageTimeInMilliseconds = g.Average(x => x.elapsed),
-                RequestName = g.Key
+                RequestName = g.Key,
+                NoOfFailedRequests = g.Count(x => x.responseCode != StatusCodes.SUCCESS)
             });
 
             return result;
